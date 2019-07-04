@@ -178,7 +178,3 @@ def fire_arg_parser(args):
     blender_args = args[args.index('--') + 1:]
     save_code_archive(bpy.path.abspath('//') + args[args.index('--output_dir') + 1])
     Fire({'render': group_render}, command=blender_args)
-
-output_dir = bpy.path.abspath('//') + 'Render-Repo/SimpleSet'
-save_code_archive(output_dir)
-group_render(output_dir, number_of_renders=100)

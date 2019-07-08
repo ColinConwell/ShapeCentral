@@ -1,10 +1,14 @@
 # ShapeCentral
 
-A simple dataset consisting of simple objects in various configurations, for use in demos of machine learning and object recognition.
+A simple dataset consisting of simple objects in various configurations, for use in demos of machine learning and object recognition. Variations include:
+
+* Position
+* Rotation
+* Texture
 
 ## Use
 
-To run this code, specify your settings in shape_central.py and run the following:
+To run this code, download [Blender](https://www.blender.org/), specify your settings in shape_central.py and run the following in the command line:
 
 ```bash
 blender --background 'shape_central.blend' --python 'shape_render.py'

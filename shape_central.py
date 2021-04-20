@@ -156,7 +156,7 @@ def save_code_archive(output_dir):
             zipf.write(file)
         zipf.close()
 
-def group_render(output_dir, number_of_renders=10, resolution=384, **kwargs):
+def group_render(output_dir, number_of_renders=10, resolution=224, **kwargs):
     total_number_of_renders = number_of_renders*len(objects)
     item_counts = {object: 0 for object in objects}
     #total_render_count = 0
@@ -169,7 +169,11 @@ def group_render(output_dir, number_of_renders=10, resolution=384, **kwargs):
                 scene_params = setup_instance(object)
                 output_name = str(number+1).zfill(5) + object
                 output_file_name = os.path.join(output_dir,output_name)
-                render_scene(output_name, output_file_name, scene_params, resolution)
+                print(output_file_name)
+                if os.path.exists(output_file_name):
+                    print('output exists!')
+                if not os.path.exists(output_file_name):
+                    render_scene(output_name, output_file_name, scene_params, resolution)
                 pbar.update(1)
     
     os.remove(bpy.path.abspath('//') + 'render.log')
